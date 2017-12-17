@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
       
     <title>Train Schedule</title>
       
+     <!-- style.css -->
+ <link rel="stylesheet" type="text/css" href="assets/css/style.css"> 
 
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    
     <!-- Additional Styling -->
+    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
 
      <!-- Firebase Reference -->
@@ -18,27 +24,33 @@
     <script src="https://momentjs.com/downloads/moment.js" ></script>
 </head>
 <body>
-
-    <header>
-        <div class="container text-center">
+        <div class="jumbotron"  >
             <div class="row">
-                <div class="col-md-12 text-center" style="font-family: 'Pangolin', cursive;">
+                <div class="col-md-3">
+                        <img src='./assets/images/traingif.gif' style="margin: 10px;">
+                </div>
+                <div class="col-md-6 text-center" style="font-family: 'Pangolin', cursive;">
                     <h1>Tokyo Train Station</h1>
-                    <p>
+                    <h3>
                         Train Schedule
-                    </p>
-                    <P>Current time</P>
-                    <p id="currentTime"></p>
+                    </h3>
+                    <h4>Current time</h4>
+                    <h2 id="currentTime"></h2>
+                </div>
+                <div class="col-md-3"  >
+                        <img src='./assets/images/traingif.gif' style="margin: 10px;" >
                 </div>
             </div>
         </div>	
-    </header>
+   
 
-    <div class="container" style="font-family: 'Pangolin', cursive;">
-        <div class="row">
-			<div class = "col-md-12">
-				<div id="scheduleRow" class="panel panel-primary">
-					<div class="panel-heading">Current Train Schedule</div>
+    <!-- <div class="container" style="font-family: 'Pangolin', cursive; "> -->
+        <div class="row" style="font-family: 'Pangolin', cursive; ">
+            <div class="col-md-1"></div>
+			<div class = "col-md-10">
+                <div id="scheduleRow" class="panel panel-primary"><br>
+                    
+					<div class="panel-heading" style="background-color:black" >Current Train Schedule</div>
 					<div class="panel-body">
 						<table id= "employeeTable" class = "table">
 							<thead>
@@ -56,13 +68,16 @@
 						</table>
 					</div>
 				</div>
-			</div>
+			
         </div>
-		<div class="row">
-                
-			<div class = "col-md-12">
+       
+         <div class="col-md-1"></div>
+    </div>
+        <div class="row">
+                <div class="col-md-1"></div>  
+			<div class = "col-md-10">
 				<div id = "trainForm" class = "panel panel-primary">
-					<div class="panel-heading">Add Train</div>
+					<div class="panel-heading" style="background-color:black" >Add Train</div>
 					<div class="panel-body">
 						<form id="form" action="#">
 							<p>
@@ -72,26 +87,45 @@
 							<p>
 								<label  style="font-size:20px; " for="destination">Destination</label><br>
 								<input type="text" style="width:100%;" id="destination" name="destination" class="dataEntry" >
-							</p>
+                                
+                            </p>
 							<p>
 								<label  style="font-size:20px; " for="frequency">frequency (min)</label><br>	
 								<input type="text" style="width:100%;"  id="frequency" name="frequency" class="dataEntry" >
                             </p>
                             <p>
-								<label  style="font-size:20px; " for="nextArrival">Next Arrival</label><br>	
+								<label  style="font-size:20px; " for="nextArrival">First Arrival 24 hrs format</label><br>	
 								<input type="text" style="width:100%;"  id="nextArrival" name="nextArrival" class="dataEntry" >
 							</p>
 						
-							<button id = "submitBtn" style="font-size:20px;" class="btn btn-success">Submit</button>
+                            <button id = "submitBtn" style="font-size:20px;" class="btn btn-success">Submit</button>
+                         
 						</form>
-					</div>
-				</div>
+                    </div>
+                    
+                    <!-- <div class="panel-heading" style="background-color:black" >Delete Train</div>
+					<div class="panel-body">
+						<form id="form" action="#">
+							<div class="row">
+                                <div class="col-md-9">
+                                    <label style="font-size:20px; " for="train">Train Name</label><br>
+                                    <input type="text" style="width:100%;" id="trainToDelete"   class="dataEntry" autofocus>
+                                </div>
+                                <div class="col-md-3">
+                                        <button id = "deleteBtn" style="font-size:20px; float: right;" class="btn btn-success">Delete</button>
+                                </div>
+							
+                            
+                            
+                        </div>
+						</form>
+				</div> -->
             </div>
             
            
 		</div>
 
-
+        <div class="col-md-1"></div>
     </div>
 
     <footer class = "container-fluid">

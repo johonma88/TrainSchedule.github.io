@@ -1,0 +1,14 @@
+body{
+    background-image: url(../images/tokyo_routemap_thumb.gif);
+}
+
+.container{
+    background-color: rgba(245, 245, 245, 0);
+}
+
+
+
+
+h1{
+    font-size: 40px;
+}

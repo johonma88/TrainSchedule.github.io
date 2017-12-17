@@ -16,7 +16,8 @@ let destination = "";
 let frequency = "";
 let nextArrival = "";
 
-// $('#clock').fitText(1.3);
+
+
 
 function update() {
   $('#currentTime').html(moment().format(' H:mm:ss'));
@@ -24,7 +25,7 @@ function update() {
 
 setInterval(update, 1000);
 
-// $("#currentTime").text(moment().format("hh:mm:ss"));
+
 
 $("#submitBtn").on("click", function() {
     // Don't refresh the page!
@@ -40,6 +41,7 @@ $("#submitBtn").on("click", function() {
         destination : destination,
         frequency : frequency,
         nextArrival :nextArrival
+    
     };
 
      // Uploads employee data to the database
@@ -58,7 +60,8 @@ database.ref().on('child_added', function(childSnapshot, prevChildName) {
     let destination = childSnapshot.val().destination;
     let frequency = childSnapshot.val().frequency;
     let nextArrival = childSnapshot.val().nextArrival;
-    // let minAway = moment().diff(nextArrival, 'minutes');
+    
+   
     
     let firstTimeConverted = moment(nextArrival, "hh:mm").subtract(1, "years");
     let diffTime = moment().diff(moment(firstTimeConverted), "minutes");
@@ -66,14 +69,34 @@ database.ref().on('child_added', function(childSnapshot, prevChildName) {
     let minAway = frequency - trainRemainder;
     let arrival = moment().add(minAway, "minutes");
     let arrivalFormat = moment(arrival).format("hh:mm");
+    let minAwayFormat = moment(minAway).format("hh:mm");
    
-    
-    $("#rowSpace").append(`<tr><td> ${trainName} </td>
+ 
+        $("#rowSpace").append(`<tr><td> ${trainName} </td>
                         <td> ${destination} </td>
                         <td> ${frequency} </td>
                         <td> ${nextArrival} </td>
-                        <td> ${minAway} </td>
+                        <td id='minAway'> ${minAway} </td>
+                        
                        </tr>`);
-  
-    
+
+   
+            
   });
+
+  function autoRefresh1()
+  {
+         window.location.reload();
+       
+  }
+   
+   setInterval('autoRefresh1()', 30000);
+
+   $("#deleteBtn").click(function(){
+    let trainToDelete = $('#trainToDelete').val().trim();
+    console.log(trainToDelete);
+ 
+    firebase.database().ref().child(trainToDelete).remove();
+    // window.location.reload();
+   });
+
