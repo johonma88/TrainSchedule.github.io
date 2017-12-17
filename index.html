@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+    <title>Train Schedule</title>
+      
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Additional Styling -->
+   <link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
+
+     <!-- Firebase Reference -->
+     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+
+    <script src="https://momentjs.com/downloads/moment.js" ></script>
+</head>
+<body>
+
+    <header>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-12 text-center" style="font-family: 'Pangolin', cursive;">
+                    <h1>Tokyo Train Station</h1>
+                    <p>
+                        Train Schedule
+                    </p>
+                    <P>Current time</P>
+                    <p id="currentTime"></p>
+                </div>
+            </div>
+        </div>	
+    </header>
+
+    <div class="container" style="font-family: 'Pangolin', cursive;">
+        <div class="row">
+			<div class = "col-md-12">
+				<div id="scheduleRow" class="panel panel-primary">
+					<div class="panel-heading">Current Train Schedule</div>
+					<div class="panel-body">
+						<table id= "employeeTable" class = "table">
+							<thead>
+                                <tr>
+                                <th>Train Name</th>
+                                <th>Destination</th>
+                                <th>Frequency</th>
+                                <th>Next Arrival</th>
+                                <th>Minutes Away</th>
+                                <th id="delete"></th>  
+                                </tr>
+							</thead>
+							<tbody id="rowSpace">
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+        </div>
+		<div class="row">
+                
+			<div class = "col-md-12">
+				<div id = "trainForm" class = "panel panel-primary">
+					<div class="panel-heading">Add Train</div>
+					<div class="panel-body">
+						<form id="form" action="#">
+							<p>
+								<label style="font-size:20px; " for="train">Train Name</label><br>
+								<input type="text" style="width:100%;" id="trainName" name="trainName"  class="dataEntry" autofocus>
+							</p>
+							<p>
+								<label  style="font-size:20px; " for="destination">Destination</label><br>
+								<input type="text" style="width:100%;" id="destination" name="destination" class="dataEntry" >
+							</p>
+							<p>
+								<label  style="font-size:20px; " for="frequency">frequency (min)</label><br>	
+								<input type="text" style="width:100%;"  id="frequency" name="frequency" class="dataEntry" >
+                            </p>
+                            <p>
+								<label  style="font-size:20px; " for="nextArrival">Next Arrival</label><br>	
+								<input type="text" style="width:100%;"  id="nextArrival" name="nextArrival" class="dataEntry" >
+							</p>
+						
+							<button id = "submitBtn" style="font-size:20px;" class="btn btn-success">Submit</button>
+						</form>
+					</div>
+				</div>
+            </div>
+            
+           
+		</div>
+
+
+    </div>
+
+    <footer class = "container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h6>@Copyright 2017 Johanna Honma</h6>
+            </div>
+        </div>
+</footer>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- Bootstrap JavaScript CDN -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- External JS File here -->
+<script src="./assets/javascript/app.js"></script>
+
+</body>
+</html>
+<!-- <input type="checkbox" name="deleteCheckbox"> -->
